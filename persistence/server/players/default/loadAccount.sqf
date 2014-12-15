@@ -11,7 +11,7 @@ if !((_UID call PDB_playerFileName) call PDB_exists) exitWith { [] }; // iniDB_e
 
 _data = [];
 
-_saveValid = ([_UID call PDB_playerFileName, "PlayerSave", "Position", "STRING"] call PDB_read != ""); // iniDB_read
+_saveValid = !([_UID call PDB_playerFileName, "PlayerSave", "Position", "STRING"] call PDB_read in ["",'""']); // iniDB_read
 _data pushBack ["PlayerSaveValid", _saveValid];
 
 _getValue =
